@@ -6,7 +6,7 @@ WORKDIR /app
 
 # Копіюємо весь вміст поточного проєкту у робочу директорію контейнера
 COPY . /app
-
+RUN ls -la /app
 # Оновлюємо pip і встановлюємо залежності з файлу requirements.txt
 RUN pip install --upgrade pip && \
     pip install -r requirements.txt
