@@ -12,7 +12,9 @@ from yt_dlp import YoutubeDL
 # Налаштування логування
 logging.basicConfig(level=logging.INFO)
 
-API_TOKEN = 'API_TOKEN'
+API_TOKEN = os.getenv("API_TOKEN")
+if not API_TOKEN:
+    raise ValueError("Не задано дійсний токен! Переконайтеся, що встановлена змінна оточення API_TOKEN.")
 
 bot = Bot(token=API_TOKEN)
 dp = Dispatcher(bot)
