@@ -12,4 +12,4 @@ RUN pip install --upgrade pip && \
     pip install -r requirements.txt
 
 # Встановлюємо команду запуску вашого застосунку
-CMD ["python", "lab.py"]
+CMD ["python", "Lab.py"]
