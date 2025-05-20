@@ -4,6 +4,7 @@ import logging
 import tempfile
 from functools import partial
 import aiohttp
+import sys
 
 from aiogram import Bot, Dispatcher, types, executor
 from yt_dlp import YoutubeDL
@@ -87,4 +88,8 @@ async def handle_message(message: types.Message):
     await message.reply("Це не посилання TikTok! Надішли посилання на TikTok відео.")
 
 if __name__ == '__main__':
-    executor.start_polling(dp, skip_updates=True)
+    try:
+        executor.start_polling(dp, skip_updates=True)
+    except Exception as e:
+        logging.error(f"Несподівана помилка головного циклу: {e}", exc_info=True)
+        sys.exit(1)

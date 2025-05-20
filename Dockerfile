@@ -13,3 +13,6 @@ RUN pip install --upgrade pip && \
 
 # Встановлюємо команду запуску вашого застосунку
 CMD ["python", "Lab.py"]
+
+HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
+  CMD pgrep -f Lab.py || exit 1
