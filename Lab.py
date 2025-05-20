@@ -9,10 +9,16 @@ from aiogram import Bot, Dispatcher, types, executor
 from yt_dlp import YoutubeDL
 
 # Налаштування логування
+# Налаштування логування
 logging.basicConfig(level=logging.INFO)
 
-API_TOKEN = 'API_TOKEN'
+# Отримуємо токен із змінної оточення
+API_TOKEN = os.getenv("API_TOKEN")
 
+if not API_TOKEN:
+    raise ValueError("Не задано дійсний токен! Перевірте змінні оточення.")
+
+# Ініціалізація бота
 bot = Bot(token=API_TOKEN)
 dp = Dispatcher(bot)
 
