@@ -87,8 +87,6 @@ async def handle_message(message: types.Message):
             await message.reply("Виникла помилка при завантаженні відео. Спробуй пізніше.")
         return
 
-    await message.reply("Це не посилання TikTok! Надішли посилання на TikTok відео.")
-
 if __name__ == '__main__':
     try:
         executor.start_polling(dp, skip_updates=True)
